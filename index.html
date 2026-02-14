@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>QTOP Cheesecake - Tartas y Brownies en Coslada</title>
-<!-- Fuentes -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
-<!-- Iconos -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QTOP Cheesecake - Tartas y Brownies en Coslada</title>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- PayPal SDK - con tu Client ID integrado -->
+  <script src="https://www.paypal.com/sdk/js?client-id=AZDOsVpSfBxSMz_cxCKjBdnf4c83u7DoTuhqB8IB&currency=EUR"></script>
+
+  <style>
     :root {
       --verde-principal: #4a7c59;
       --verde-hover: #3d6a4b;
@@ -33,9 +38,8 @@
     h1, h2, h3 { font-family: 'Playfair Display', serif; }
     a { text-decoration: none; color: inherit; }
 
-    /* HEADER */
     header {
-      background-color: var(--blanco);
+      background: var(--blanco);
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       position: fixed;
       width: 100%;
@@ -46,660 +50,516 @@
     .nav-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0.5rem 2rem;
+      padding: 0.8rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 1rem;
     }
 
-    .logo-container { display: flex; align-items: center; gap: 12px; }
     .logo-img { height: 70px; width: auto; }
 
-    nav ul { list-style: none; display: flex; gap: 2rem; align-items: center; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.2rem;
+    }
 
     nav a {
       font-weight: 600;
       color: var(--texto-oscuro);
       transition: color 0.3s;
-      font-size: 0.95rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      cursor: pointer;
+      letter-spacing: 0.8px;
+      font-size: 0.95rem;
     }
     nav a:hover { color: var(--verde-principal); }
 
-    /* CART BUTTON */
     .cart-btn {
       position: relative;
-      border: 1px solid rgba(0,0,0,0.08);
       background: var(--blanco);
-      border-radius: 999px;
-      padding: 10px 14px;
-      display: inline-flex;
-      gap: 10px;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 50px;
+      padding: 10px 16px;
+      display: flex;
       align-items: center;
+      gap: 10px;
       font-weight: 700;
       color: var(--verde-principal);
       cursor: pointer;
-      transition: transform 0.15s, box-shadow 0.15s;
-      white-space: nowrap;
+      transition: all 0.2s;
     }
-    .cart-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-    }
+    .cart-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+
     .cart-badge {
       position: absolute;
-      top: -7px;
-      right: -7px;
+      top: -8px;
+      right: -8px;
       background: #e74c3c;
-      color: #fff;
-      border-radius: 999px;
-      padding: 2px 7px;
+      color: white;
+      border-radius: 50%;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 6px;
       font-size: 0.75rem;
-      font-weight: 800;
-      min-width: 22px;
-      text-align: center;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* HERO */
     .hero {
-      height: 85vh;
-      background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.95)),
-        url('https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+      min-height: 85vh;
+      background: linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.92)),
+                  url('https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=2070&auto=format&fit=crop') center/cover;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 0 2rem;
-      margin-top: 80px;
+      padding: 0 1.5rem;
+      margin-top: 85px;
     }
 
-    .hero-content { max-width: 800px; }
+    .hero-logo { max-width: 420px; height: auto; margin-bottom: 1.8rem; }
 
-    .hero-logo {
-      width: 100%;
-      max-width: 450px;
-      height: auto;
-      margin-bottom: 1.5rem;
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
-    }
-
-    .hero-content p {
-      font-size: 1.3rem;
+    .hero p {
+      font-size: 1.35rem;
       color: var(--texto-gris);
-      margin: 0 auto 2rem;
+      max-width: 680px;
+      margin: 0 auto 2.2rem;
       font-style: italic;
     }
 
     .btn-principal {
-      background-color: var(--verde-principal);
-      color: var(--blanco);
-      padding: 14px 35px;
+      background: var(--verde-principal);
+      color: white;
+      padding: 14px 40px;
       border-radius: 50px;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 1.05rem;
       transition: background 0.3s;
-      display: inline-block;
       cursor: pointer;
+      border: none;
     }
-    .btn-principal:hover { background-color: var(--verde-hover); }
+    .btn-principal:hover { background: var(--verde-hover); }
 
-    /* MENU SECTION */
-    .menu-section {
-      padding: 5rem 2rem;
-      max-width: 1200px;
+    .menu-section, .contact-section {
+      padding: 6rem 2rem;
+      max-width: 1240px;
       margin: 0 auto;
     }
 
     .section-title {
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       color: var(--verde-principal);
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.4rem;
       position: relative;
     }
     .section-title::after {
       content: '';
-      display: block;
-      width: 60px;
-      height: 3px;
-      background-color: var(--verde-principal);
-      margin: 10px auto 0;
-    }
-
-    /* Collapsible menu */
-    .menu-collapsible {
-      margin-top: 1.5rem;
-      display: none;
-      animation: fadeIn 0.18s ease-out;
-    }
-    .menu-collapsible.open { display: block; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
+      width: 70px;
+      height: 4px;
+      background: var(--verde-principal);
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.2rem;
+      margin-top: 2rem;
     }
 
     .menu-card {
-      background: var(--blanco);
-      border-radius: 10px;
+      background: white;
+      border-radius: 16px;
       padding: 2rem;
       text-align: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
       transition: transform 0.3s;
     }
-    .menu-card:hover { transform: translateY(-5px); }
+    .menu-card:hover { transform: translateY(-8px); }
 
-    .menu-card h3 {
-      font-size: 1.8rem;
-      margin-bottom: 0.7rem;
-      color: var(--texto-oscuro);
+    .menu-card h3 { font-size: 2rem; margin-bottom: 0.8rem; }
+
+    .description { color: var(--texto-gris); font-size: 0.95rem; margin: 0.8rem 0 1.2rem; }
+
+    .variants { display: grid; gap: 0.9rem; }
+
+    .variant-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 12px;
+      background: rgba(74,124,89,0.03);
     }
 
-    .price-tag {
-      display: block;
-      font-size: 1.2rem;
-      color: var(--verde-principal);
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-    }
-
-    .description { font-size: 0.9rem; color: var(--texto-gris); margin-top: 0.5rem; }
-
-    .variants {
-      display: grid;
-      gap: 0.6rem;
-      margin-top: 1rem;
-    }
-
-    .variant-row{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap: 10px;
-      border: 1px solid rgba(0,0,0,0.06);
-      padding: 10px 12px;
-      border-radius: 10px;
-      background: rgba(253,251,247,0.6);
-    }
-
-    .variant-name { font-weight: 800; color: var(--texto-oscuro); }
-    .variant-price { font-weight: 800; color: var(--verde-principal); }
+    .variant-name { font-weight: 700; }
+    .variant-price { font-weight: 800; color: var(--verde-principal); font-size: 1.1rem; }
 
     .btn-add {
-      border: none;
       background: var(--verde-principal);
-      color: #fff;
-      padding: 9px 12px;
-      border-radius: 999px;
-      font-weight: 800;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 50px;
+      font-weight: 700;
       cursor: pointer;
       transition: background 0.2s;
-      white-space: nowrap;
     }
     .btn-add:hover { background: var(--verde-hover); }
 
-    /* Drinks list inside menu */
-    .drinks-wrap {
-      margin-top: 0.2rem;
-    }
-    .drinks-title {
-      text-align:center;
-      font-family:'Playfair Display', serif;
-      font-size: 2rem;
-      margin: 3rem 0 1rem;
-      color: var(--texto-oscuro);
-    }
-    .drinks-sub {
-      text-align:center;
-      color: var(--texto-gris);
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-    }
+    .drinks-title { font-size: 2.4rem; text-align: center; margin: 4rem 0 1rem; }
+    .drinks-sub { text-align: center; color: var(--texto-gris); margin-bottom: 2rem; }
+
     .drinks-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.4rem;
     }
+
     .drink-card {
-      background: var(--blanco);
-      border-radius: 10px;
-      padding: 1.2rem 1.2rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap: 10px;
-    }
-    .drink-left {
-      display:flex;
-      flex-direction:column;
-      gap: 2px;
-      text-align:left;
-    }
-    .drink-name { font-weight: 900; }
-    .drink-note { color: var(--texto-gris); font-size: 0.85rem; }
-    .drink-price { font-weight: 900; color: var(--verde-principal); }
-
-    /* CONTACT */
-    .contact-section {
-      background-color: var(--verde-principal);
-      color: var(--blanco);
-      padding: 5rem 2rem;
-      text-align: center;
-    }
-
-    .contact-container { max-width: 900px; margin: 0 auto; }
-    .contact-section h2 { margin-bottom: 1.2rem; }
-    .contact-text { margin-bottom: 2rem; font-size: 1.1rem; opacity: 0.95; }
-
-    .contact-grid {
+      background: white;
+      border-radius: 12px;
+      padding: 1.4rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.2rem;
-      margin-bottom: 2rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .contact-section {
+      background: var(--verde-principal);
+      color: white;
+      text-align: center;
     }
 
     .btn-contact {
+      background: white;
+      color: var(--verde-principal);
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 700;
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: var(--blanco);
-      color: var(--verde-principal);
-      padding: 12px 25px;
-      border-radius: 50px;
-      font-weight: 800;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: all 0.25s;
     }
-    .btn-contact:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+    .btn-contact:hover { transform: scale(1.06); }
 
-    .info-adicional { font-size: 0.9rem; opacity: 0.9; margin-top: 1.5rem; }
-
-    /* FOOTER */
-    footer {
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-    }
-
-    .footer-links a { color: #ccc; margin: 0 10px; transition: color 0.3s; }
-    .footer-links a:hover { color: var(--verde-principal); }
-
-    /* CART DRAWER */
+    /* Carrito */
     .cart-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.45);
+      background: rgba(0,0,0,0.5);
+      z-index: 1999;
       display: none;
-      z-index: 2000;
     }
     .cart-overlay.open { display: block; }
 
     .cart-drawer {
       position: fixed;
-      top: 0;
-      right: 0;
+      top: 0; right: 0;
+      width: min(440px, 94vw);
       height: 100%;
-      width: min(420px, 92vw);
-      background: #fff;
-      z-index: 2100;
+      background: white;
+      z-index: 2000;
       transform: translateX(100%);
-      transition: transform 0.22s ease-out;
-      box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
       display: flex;
       flex-direction: column;
+      box-shadow: -8px 0 30px rgba(0,0,0,0.25);
     }
     .cart-drawer.open { transform: translateX(0); }
 
     .cart-header {
-      padding: 18px 18px;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap: 10px;
-    }
-    .cart-title { font-family:'Playfair Display', serif; font-size: 1.6rem; }
-    .cart-close {
-      border: none;
-      background: rgba(0,0,0,0.06);
-      border-radius: 12px;
-      padding: 10px 12px;
-      cursor: pointer;
-      font-weight: 900;
+      padding: 1.4rem 1.6rem;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .cart-body {
-      padding: 14px 18px;
-      overflow: auto;
-      flex: 1;
-    }
-
-    .cart-empty {
-      color: var(--texto-gris);
-      text-align: center;
-      padding: 26px 0;
-    }
+    .cart-body { flex: 1; overflow-y: auto; padding: 1rem 1.6rem; }
 
     .cart-item {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 10px;
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-    }
-    .cart-item-name { font-weight: 900; }
-    .cart-item-sub { color: var(--texto-gris); font-size: 0.85rem; margin-top: 2px; }
-    .cart-item-actions { display:flex; align-items:center; gap: 8px; }
-    .qty-btn{
-      border: 1px solid rgba(0,0,0,0.12);
-      background: #fff;
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: 900;
-    }
-    .qty{
-      min-width: 18px;
-      text-align:center;
-      font-weight: 900;
-    }
-    .remove-btn{
-      border: none;
-      background: rgba(231,76,60,0.12);
-      color: #e74c3c;
-      border-radius: 10px;
-      padding: 8px 10px;
-      cursor:pointer;
-      font-weight: 900;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid #f0f0f0;
     }
 
-    .cart-footer{
-      border-top: 1px solid rgba(0,0,0,0.08);
-      padding: 14px 18px 18px;
-      display: grid;
-      gap: 10px;
-      background: #fff;
-    }
-    .cart-total-row{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      font-weight: 900;
-      font-size: 1.05rem;
-    }
-    .cart-note{
-      color: var(--texto-gris);
-      font-size: 0.85rem;
-      line-height: 1.4;
+    .cart-footer {
+      padding: 1.6rem;
+      border-top: 1px solid #eee;
+      background: #fafafa;
     }
 
-    .cart-actions{
-      display:grid;
-      gap: 10px;
-    }
+    #paypal-button-container { min-height: 48px; margin: 1rem 0; }
 
-    .btn-paypal{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap: 10px;
-      background: #003087;
-      color:#fff;
-      padding: 12px 14px;
-      border-radius: 999px;
-      font-weight: 900;
-    }
-    .paypal-container{width:100%;}
-    .paypal-container > div{width:100%;}
-    .paypal-hint{font-size:0.85rem;color:var(--texto-gris);margin:10px 0 0;}
-
-    .btn-paypal:hover{ opacity: 0.92; }
-
-    .btn-whatsapp{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap: 10px;
+    .btn-whatsapp {
       background: #25D366;
-      color:#fff;
-      padding: 12px 14px;
-      border-radius: 999px;
-      font-weight: 900;
-    }
-    .btn-whatsapp:hover{ opacity: 0.92; }
-
-    .btn-clear{
-      border: 1px solid rgba(0,0,0,0.14);
-      background: #fff;
-      border-radius: 999px;
-      padding: 12px 14px;
-      font-weight: 900;
-      cursor:pointer;
+      color: white;
+      width: 100%;
+      padding: 14px;
+      border-radius: 50px;
+      border: none;
+      font-weight: 700;
+      margin: 0.6rem 0;
+      cursor: pointer;
     }
 
-    /* RESPONSIVE */
     @media (max-width: 768px) {
       nav ul { display: none; }
-      .nav-container { justify-content: space-between; }
-      .logo-img { height: 60px; }
-      .hero-logo { max-width: 300px; }
-      .cart-btn span.label { display:none; } /* deja solo icono + badge */
+      .cart-btn span:not(.cart-badge) { display: none; }
+      .hero-logo { max-width: 320px; }
     }
   </style>
-<script src="https://www.paypal.com/sdk/js?client-id=AZDOsVpSfBxSMz_cxCKjBdnf4c83u7DoTuhqB8IB144zdfWVJ5p6BfcHIr8uimwOqlFVuDyUPdYZt5Nh&amp;currency=EUR&amp;intent=capture"></script></head>
+</head>
 <body>
-<!-- HEADER -->
+
 <header>
-<div class="nav-container">
-<div class="logo-container">
-<img alt="QTOP Cheesecake Logo" class="logo-img" src="https://z-cdn-media.chatglm.cn/files/afb9fb8c-196e-4455-a5cb-9709652d3320.png?auth_key=1871063276-63c4cbe92fdb4b1b9588f9e8a2f1196f-0-0a83f481d12b01ea8e70c0e25d231449"/>
-</div>
-<nav>
-<ul>
-<li><a href="#inicio">Inicio</a></li>
-<li><a href="#menu" id="menuLink">Menú</a></li>
-<li><a href="#contacto">Contacto</a></li>
-</ul>
-</nav>
-<button aria-label="Abrir carrito" class="cart-btn" id="cartOpenBtn">
-<i class="fa-solid fa-bag-shopping"></i>
-<span class="label">Carrito</span>
-<span class="cart-badge" id="cartCount">0</span>
-</button>
-</div>
+  <div class="nav-container">
+    <img src="https://z-cdn-media.chatglm.cn/files/afb9fb8c-196e-4455-a5cb-9709652d3320.png?auth_key=1871063276-63c4cbe92fdb4b1b9588f9e8a2f1196f-0-0a83f481d12b01ea8e70c0e25d231449" alt="QTOP Logo" class="logo-img">
+
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#menu">Menú</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <button class="cart-btn" id="openCart">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <span>Carrito</span>
+      <span class="cart-badge" id="cartCount">0</span>
+    </button>
+  </div>
 </header>
-<!-- HERO -->
-<section class="hero" id="inicio">
-<div class="hero-content">
-<img alt="QTOP Cheesecake" class="hero-logo" src="https://z-cdn-media.chatglm.cn/files/afb9fb8c-196e-4455-a5cb-9709652d3320.png?auth_key=1871063276-63c4cbe92fdb4b1b9588f9e8a2f1196f-0-0a83f481d12b01ea8e70c0e25d231449"/>
-<p>Arte en cada porción. Tartas, Brownies y Cookies artesanales preparados con pasión en Coslada.</p>
-<a class="btn-principal" id="heroMenuBtn">Ver Menú</a>
-</div>
+
+<section id="inicio" class="hero">
+  <div>
+    <img src="https://z-cdn-media.chatglm.cn/files/afb9fb8c-196e-4455-a5cb-9709652d3320.png?auth_key=1871063276-63c4cbe92fdb4b1b9588f9e8a2f1196f-0-0a83f481d12b01ea8e70c0e25d231449" alt="QTOP Cheesecake" class="hero-logo">
+    <p>Arte en cada porción. Tartas, Brownies y Cookies artesanales preparados con pasión en Coslada.</p>
+    <button class="btn-principal" id="verMenu">Ver Menú</button>
+  </div>
 </section>
-<!-- MENÚ -->
-<section class="menu-section" id="menu">
-<h2 class="section-title">Nuestro Menú</h2>
-<!-- Contenedor desplegable -->
-<div class="menu-collapsible" id="menuPanel">
-<div class="menu-grid">
-<!-- Cheesecake -->
-<div class="menu-card">
-<h3>Cheesecake</h3>
-<p class="description">Nuestra estrella. Cremosa, suave y con la base perfecta.</p>
-<div class="variants">
-<div class="variant-row">
-<div>
-<div class="variant-name">Entera</div>
-<div class="variant-price">29.50€</div>
-</div>
-<button class="btn-add" data-id="cheesecake_entera" data-name="Cheesecake (Entera)" data-price="29.50">Añadir</button>
-</div>
-<div class="variant-row">
-<div>
-<div class="variant-name">Porción</div>
-<div class="variant-price">6.00€</div>
-</div>
-<button class="btn-add" data-id="cheesecake_porcion" data-name="Cheesecake (Porción)" data-price="6.00">Añadir</button>
-</div>
-</div>
-</div>
-<!-- Brownie -->
-<div class="menu-card">
-<h3>Brownie</h3>
-<p class="description">Intenso sabor a chocolate, húmedo por dentro y crujiente por fuera.</p>
-<div class="variants">
-<div class="variant-row">
-<div>
-<div class="variant-name">Entero</div>
-<div class="variant-price">31.50€</div>
-</div>
-<button class="btn-add" data-id="brownie_entero" data-name="Brownie (Entero)" data-price="31.50">Añadir</button>
-</div>
-<div class="variant-row">
-<div>
-<div class="variant-name">Porción</div>
-<div class="variant-price">6.00€</div>
-</div>
-<button class="btn-add" data-id="brownie_porcion" data-name="Brownie (Porción)" data-price="6.00">Añadir</button>
-</div>
-</div>
-</div>
-<!-- Cookies -->
-<div class="menu-card">
-<h3>Cookies</h3>
-<p class="description">Recién horneadas, crujientes en los bordes y suaves en el centro.</p>
-<div class="variants">
-<div class="variant-row">
-<div>
-<div class="variant-name">Unidad</div>
-<div class="variant-price">1.50€</div>
-</div>
-<button class="btn-add" data-id="cookie_unidad" data-name="Cookie (Unidad)" data-price="1.50">Añadir</button>
-</div>
-</div>
-</div>
-</div>
-<!-- BEBIDAS (separadas) -->
-<div aria-label="Bebidas" class="drinks-wrap">
-<div class="drinks-title">Bebidas</div>
-<div class="drinks-sub">Todas a <strong>2.00€</strong> (elige tu favorita)</div>
-<div class="drinks-grid">
-<div class="drink-card">
-<div class="drink-left">
-<div class="drink-name">Coca‑Cola</div>
-<div class="drink-note">Lata</div>
-</div>
-<div style="display:flex; align-items:center; gap:10px;">
-<div class="drink-price">2.00€</div>
-<button class="btn-add" data-id="bebida_cocacola" data-name="Bebida: Coca‑Cola (Lata)" data-price="2.00">Añadir</button>
-</div>
-</div>
-<div class="drink-card">
-<div class="drink-left">
-<div class="drink-name">Coca‑Cola Zero</div>
-<div class="drink-note">Lata</div>
-</div>
-<div style="display:flex; align-items:center; gap:10px;">
-<div class="drink-price">2.00€</div>
-<button class="btn-add" data-id="bebida_cocazero" data-name="Bebida: Coca‑Cola Zero (Lata)" data-price="2.00">Añadir</button>
-</div>
-</div>
-<div class="drink-card">
-<div class="drink-left">
-<div class="drink-name">Fanta Naranja</div>
-<div class="drink-note">Lata</div>
-</div>
-<div style="display:flex; align-items:center; gap:10px;">
-<div class="drink-price">2.00€</div>
-<button class="btn-add" data-id="bebida_fanta" data-name="Bebida: Fanta Naranja (Lata)" data-price="2.00">Añadir</button>
-</div>
-</div>
-<div class="drink-card">
-<div class="drink-left">
-<div class="drink-name">Sprite</div>
-<div class="drink-note">Lata</div>
-</div>
-<div style="display:flex; align-items:center; gap:10px;">
-<div class="drink-price">2.00€</div>
-<button class="btn-add" data-id="bebida_sprite" data-name="Bebida: Sprite (Lata)" data-price="2.00">Añadir</button>
-</div>
-</div>
-<div class="drink-card">
-<div class="drink-left">
-<div class="drink-name">Aquarius Limón</div>
-<div class="drink-note">Lata</div>
-</div>
-<div style="display:flex; align-items:center; gap:10px;">
-<div class="drink-price">2.00€</div>
-<button class="btn-add" data-id="bebida_aquarius" data-name="Bebida: Aquarius Limón (Lata)" data-price="2.00">Añadir</button>
-</div>
-</div>
-<div class="drink-card">
-<div class="drink-left">
-<div class="drink-name">Pepsi</div>
-<div class="drink-note">Lata</div>
-</div>
-<div style="display:flex; align-items:center; gap:10px;">
-<div class="drink-price">2.00€</div>
-<button class="btn-add" data-id="bebida_pepsi" data-name="Bebida: Pepsi (Lata)" data-price="2.00">Añadir</button>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+<section id="menu" class="menu-section">
+  <h2 class="section-title">Nuestro Menú</h2>
+
+  <div class="menu-grid">
+    <!-- Cheesecake -->
+    <div class="menu-card">
+      <h3>Cheesecake</h3>
+      <p class="description">Cremosa, suave y con la base perfecta.</p>
+      <div class="variants">
+        <div class="variant-row">
+          <span><strong>Entera</strong> – 29.50€</span>
+          <button class="btn-add" data-name="Cheesecake Entera" data-price="29.50">Añadir</button>
+        </div>
+        <div class="variant-row">
+          <span><strong>Porción</strong> – 6.00€</span>
+          <button class="btn-add" data-name="Cheesecake Porción" data-price="6.00">Añadir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Brownie -->
+    <div class="menu-card">
+      <h3>Brownie</h3>
+      <p class="description">Intenso chocolate, húmedo por dentro.</p>
+      <div class="variants">
+        <div class="variant-row">
+          <span><strong>Entero</strong> – 31.50€</span>
+          <button class="btn-add" data-name="Brownie Entero" data-price="31.50">Añadir</button>
+        </div>
+        <div class="variant-row">
+          <span><strong>Porción</strong> – 6.00€</span>
+          <button class="btn-add" data-name="Brownie Porción" data-price="6.00">Añadir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cookies -->
+    <div class="menu-card">
+      <h3>Cookies</h3>
+      <p class="description">Crujientes por fuera, suaves por dentro.</p>
+      <div class="variants">
+        <div class="variant-row">
+          <span><strong>Unidad</strong> – 1.50€</span>
+          <button class="btn-add" data-name="Cookie Unidad" data-price="1.50">Añadir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="drinks-title">Bebidas</div>
+  <p class="drinks-sub">Todas a <strong>2.00 €</strong></p>
+
+  <!-- Aquí puedes añadir las bebidas como cards similares -->
 </section>
-<!-- CONTACTO -->
-<section class="contact-section" id="contacto">
-<div class="contact-container">
-<h2>Haz tu Pedido</h2>
-<p class="contact-text">Solo recogida en tienda (Take Away). Realiza tu pedido con antelación.</p>
-<div class="contact-grid">
-<a class="btn-contact" href="https://wa.me/34645052784" target="_blank">
-<i class="fab fa-whatsapp" style="font-size: 1.5rem; color: #25D366;"></i>
-          Pedir por WhatsApp
-        </a>
-<button class="btn-contact" id="payWithPayPalMain">Pagar con PayPal</button>
-</div>
-<div class="info-adicional">
-<p><i class="fas fa-map-marker-alt"></i> Coslada, Madrid (C.P. 28821)</p>
-<p><i class="fas fa-envelope"></i> qtopcheesecake@gmail.com</p>
-<p><i class="fab fa-instagram"></i> @qtopcheesecake</p>
-</div>
-</div>
+
+<section id="contacto" class="contact-section">
+  <h2>Haz tu Pedido</h2>
+  <p style="margin: 1.5rem 0 2.5rem; font-size: 1.15rem; max-width: 680px; margin-left: auto; margin-right: auto;">
+    Escríbenos por WhatsApp para confirmar disponibilidad, personalizar tu pedido o cualquier consulta.
+  </p>
+  <a href="https://wa.me/34600000000?text=Hola%21%20Quisiera%20hacer%20un%20pedido%20de..." class="btn-contact" target="_blank">
+    <i class="fab fa-whatsapp fa-lg"></i> Contactar por WhatsApp
+  </a>
 </section>
-<!-- FOOTER -->
-<footer>
-<div class="footer-links">
-<a href="https://www.instagram.com/qtopcheesecake/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-<a href="mailto:qtopcheesecake@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-</div>
-<p>© 2023 Qtop Cheesecake. Todos los derechos reservados.</p>
-</footer>
-<!-- CART UI -->
+
+<!-- CARRITO -->
 <div class="cart-overlay" id="cartOverlay"></div>
-<aside aria-label="Carrito de compras" class="cart-drawer" id="cartDrawer">
-<div class="cart-header">
-<div class="cart-title">Tu carrito</div>
-<button aria-label="Cerrar carrito" class="cart-close" id="cartCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h2>Tu Carrito</h2>
+    <button id="closeCart" style="font-size:1.6rem; border:none; background:none; cursor:pointer;">×</button>
+  </div>
+
+  <div class="cart-body" id="cartItems"></div>
+
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div style="display:flex; justify-content:space-between; font-size:1.3rem; font-weight:700; margin-bottom:1.2rem;">
+      <span>Total:</span>
+      <span id="cartTotal">0.00 €</span>
+    </div>
+
+    <div id="paypal-button-container"></div>
+
+    <button class="btn-whatsapp" id="contactWhatsApp">
+      <i class="fab fa-whatsapp"></i> Confirmar pedido por WhatsApp
+    </button>
+  </div>
 </div>
-<div class="cart-body">
-<div id="cartItems"></div>
-<div class="cart-empty" id="cartEmpty">Aún no has añadido productos.</div>
-</div>
-<div class="cart-footer">
-<div class="cart-total-row">
-<span>Total</span>
-<span id="cartTotal">0.00€</span>
-</d
+
+<script>
+// --------------------------------------------------
+//  CARRITO + PAYPAL
+// --------------------------------------------------
+let cart = JSON.parse(localStorage.getItem('qtopCart')) || [];
+
+const cartCount    = document.getElementById('cartCount');
+const cartItems    = document.getElementById('cartItems');
+const cartTotal    = document.getElementById('cartTotal');
+const cartFooter   = document.getElementById('cartFooter');
+const overlay      = document.getElementById('cartOverlay');
+const drawer       = document.getElementById('cartDrawer');
+const closeCart    = document.getElementById('closeCart');
+const openCartBtn  = document.getElementById('openCart');
+const contactWA    = document.getElementById('contactWhatsApp');
+
+function saveCart() { localStorage.setItem('qtopCart', JSON.stringify(cart)); renderCart(); }
+
+function renderCart() {
+  let total = 0;
+  cartCount.textContent = cart.reduce((sum, i) => sum + i.qty, 0);
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = '<p style="text-align:center; color:#777; padding:3rem 0;">El carrito está vacío</p>';
+    cartFooter.style.display = 'none';
+    return;
+  }
+
+  cartFooter.style.display = 'block';
+  let html = '';
+
+  cart.forEach((item, i) => {
+    const subt = item.price * item.qty;
+    total += subt;
+    html += `
+      <div class="cart-item">
+        <div>
+          <strong>${item.name}</strong><br>
+          <small>${item.price.toFixed(2)} € × ${item.qty}</small>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <button onclick="updateQty(${i},-1)">−</button>
+          <span>${item.qty}</span>
+          <button onclick="updateQty(${i},1)">+</button>
+          <button onclick="removeFromCart(${i})" style="color:#e74c3c;">×</button>
+        </div>
+      </div>
+    `;
+  });
+
+  cartItems.innerHTML = html;
+  cartTotal.textContent = total.toFixed(2) + ' €';
+
+  // Render PayPal
+  document.getElementById('paypal-button-container').innerHTML = '';
+  paypal.Buttons({
+    style: { shape: 'rect', color: 'gold', layout: 'vertical', label: 'paypal' },
+    createOrder(data, actions) {
+      return actions.order.create({
+        purchase_units: [{ amount: { value: total.toFixed(2), currency_code: 'EUR' } }]
+      });
+    },
+    onApprove(data, actions) {
+      return actions.order.capture().then(details => {
+        alert('¡Pago realizado con éxito! Gracias por tu compra.');
+        cart = [];
+        saveCart();
+        closeCartDrawer();
+      });
+    },
+    onError(err) {
+      console.error(err);
+      alert('Error en el pago. Inténtalo de nuevo.');
+    }
+  }).render('#paypal-button-container');
+}
+
+function updateQty(index, delta) {
+  cart[index].qty = Math.max(1, (cart[index].qty || 1) + delta);
+  saveCart();
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  saveCart();
+}
+
+function openCartDrawer() { overlay.classList.add('open'); drawer.classList.add('open'); renderCart(); }
+function closeCartDrawer() { overlay.classList.remove('open'); drawer.classList.remove('open'); }
+
+openCartBtn.onclick = openCartDrawer;
+closeCart.onclick = closeCartDrawer;
+overlay.onclick = closeCartDrawer;
+
+contactWA.onclick = () => {
+  const msg = cart.map(i => `${i.qty} × ${i.name}`).join('%0A');
+  window.open(`https://wa.me/34600000000?text=Hola!%20Mi%20pedido:%0A\( {msg}%0ATotal:%20 \){cartTotal.textContent}`, '_blank');
+};
+
+// Añadir al carrito
+document.querySelectorAll('.btn-add').forEach(btn => {
+  btn.onclick = () => {
+    const name  = btn.dataset.name;
+    const price = parseFloat(btn.dataset.price);
+    const found = cart.find(i => i.name === name);
+
+    if (found) found.qty = (found.qty || 1) + 1;
+    else cart.push({ name, price, qty: 1 });
+
+    saveCart();
+  };
+});
+
+// Scroll suave
+document.getElementById('verMenu').onclick = () =>
+  document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+
+// Inicio
+renderCart();
+</script>
+</body>
+</html>
