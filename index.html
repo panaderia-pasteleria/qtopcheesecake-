@@ -1,19 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QTOP Cheesecake - Tartas y Brownies en Coslada</title>
-
-  <!-- Fuentes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-
-  <!-- Iconos -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QTOP Cheesecake - Tartas y Brownies en Coslada</title>
+<!-- Fuentes -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet"/>
+<!-- Iconos -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
     :root {
       --verde-principal: #4a7c59;
       --verde-hover: #3d6a4b;
@@ -500,197 +498,208 @@
       .cart-btn span.label { display:none; } /* deja solo icono + badge */
     }
   </style>
-</head>
-
+<script src="https://www.paypal.com/sdk/js?client-id=AZDOsVpSfBxSMz_cxCKjBdnf4c83u7DoTuhqB8IB144zdfWVJ5p6BfcHIr8uimwOqlFVuDyUPdYZt5Nh&amp;currency=EUR&amp;intent=capture"></script></head>
 <body>
-
-  <!-- HEADER -->
-  <header>
-    <div class="nav-container">
-      <div class="logo-container">
-        <img src="https://z-cdn-media.chatglm.cn/files/afb9fb8c-196e-4455-a5cb-9709652d3320.png?auth_key=1871063276-63c4cbe92fdb4b1b9588f9e8a2f1196f-0-0a83f481d12b01ea8e70c0e25d231449" alt="QTOP Cheesecake Logo" class="logo-img">
-      </div>
-
-      <nav>
-        <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#menu" id="menuLink">Menú</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-
-      <button class="cart-btn" id="cartOpenBtn" aria-label="Abrir carrito">
-        <i class="fa-solid fa-bag-shopping"></i>
-        <span class="label">Carrito</span>
-        <span class="cart-badge" id="cartCount">0</span>
-      </button>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section id="inicio" class="hero">
-    <div class="hero-content">
-      <img src="https://z-cdn-media.chatglm.cn/files/afb9fb8c-196e-4455-a5cb-9709652d3320.png?auth_key=1871063276-63c4cbe92fdb4b1b9588f9e8a2f1196f-0-0a83f481d12b01ea8e70c0e25d231449" alt="QTOP Cheesecake" class="hero-logo">
-      <p>Arte en cada porción. Tartas, Brownies y Cookies artesanales preparados con pasión en Coslada.</p>
-
-      <a class="btn-principal" id="heroMenuBtn">Ver Menú</a>
-    </div>
-  </section>
-
-  <!-- MENÚ -->
-  <section id="menu" class="menu-section">
-    <h2 class="section-title">Nuestro Menú</h2>
-
-    <!-- Contenedor desplegable -->
-    <div class="menu-collapsible" id="menuPanel">
-      <div class="menu-grid">
-
-        <!-- Cheesecake -->
-        <div class="menu-card">
-          <h3>Cheesecake</h3>
-          <p class="description">Nuestra estrella. Cremosa, suave y con la base perfecta.</p>
-
-          <div class="variants">
-            <div class="variant-row">
-              <div>
-                <div class="variant-name">Entera</div>
-                <div class="variant-price">29.50€</div>
-              </div>
-              <button class="btn-add" data-id="cheesecake_entera" data-name="Cheesecake (Entera)" data-price="29.50">Añadir</button>
-            </div>
-
-            <div class="variant-row">
-              <div>
-                <div class="variant-name">Porción</div>
-                <div class="variant-price">6.00€</div>
-              </div>
-              <button class="btn-add" data-id="cheesecake_porcion" data-name="Cheesecake (Porción)" data-price="6.00">Añadir</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Brownie -->
-        <div class="menu-card">
-          <h3>Brownie</h3>
-          <p class="description">Intenso sabor a chocolate, húmedo por dentro y crujiente por fuera.</p>
-
-          <div class="variants">
-            <div class="variant-row">
-              <div>
-                <div class="variant-name">Entero</div>
-                <div class="variant-price">31.50€</div>
-              </div>
-              <button class="btn-add" data-id="brownie_entero" data-name="Brownie (Entero)" data-price="31.50">Añadir</button>
-            </div>
-
-            <div class="variant-row">
-              <div>
-                <div class="variant-name">Porción</div>
-                <div class="variant-price">6.00€</div>
-              </div>
-              <button class="btn-add" data-id="brownie_porcion" data-name="Brownie (Porción)" data-price="6.00">Añadir</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cookies -->
-        <div class="menu-card">
-          <h3>Cookies</h3>
-          <p class="description">Recién horneadas, crujientes en los bordes y suaves en el centro.</p>
-
-          <div class="variants">
-            <div class="variant-row">
-              <div>
-                <div class="variant-name">Unidad</div>
-                <div class="variant-price">1.50€</div>
-              </div>
-              <button class="btn-add" data-id="cookie_unidad" data-name="Cookie (Unidad)" data-price="1.50">Añadir</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- BEBIDAS (separadas) -->
-      <div class="drinks-wrap" aria-label="Bebidas">
-        <div class="drinks-title">Bebidas</div>
-        <div class="drinks-sub">Todas a <strong>2.00€</strong> (elige tu favorita)</div>
-
-        <div class="drinks-grid">
-          <div class="drink-card">
-            <div class="drink-left">
-              <div class="drink-name">Coca‑Cola</div>
-              <div class="drink-note">Lata</div>
-            </div>
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div class="drink-price">2.00€</div>
-              <button class="btn-add" data-id="bebida_cocacola" data-name="Bebida: Coca‑Cola (Lata)" data-price="2.00">Añadir</button>
-            </div>
-          </div>
-
-          <div class="drink-card">
-            <div class="drink-left">
-              <div class="drink-name">Coca‑Cola Zero</div>
-              <div class="drink-note">Lata</div>
-            </div>
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div class="drink-price">2.00€</div>
-              <button class="btn-add" data-id="bebida_cocazero" data-name="Bebida: Coca‑Cola Zero (Lata)" data-price="2.00">Añadir</button>
-            </div>
-          </div>
-
-          <div class="drink-card">
-            <div class="drink-left">
-              <div class="drink-name">Fanta Naranja</div>
-              <div class="drink-note">Lata</div>
-            </div>
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div class="drink-price">2.00€</div>
-              <button class="btn-add" data-id="bebida_fanta" data-name="Bebida: Fanta Naranja (Lata)" data-price="2.00">Añadir</button>
-            </div>
-          </div>
-
-          <div class="drink-card">
-            <div class="drink-left">
-              <div class="drink-name">Sprite</div>
-              <div class="drink-note">Lata</div>
-            </div>
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div class="drink-price">2.00€</div>
-              <button class="btn-add" data-id="bebida_sprite" data-name="Bebida: Sprite (Lata)" data-price="2.00">Añadir</button>
-            </div>
-          </div>
-
-          <div class="drink-card">
-            <div class="drink-left">
-              <div class="drink-name">Aquarius Limón</div>
-              <div class="drink-note">Lata</div>
-            </div>
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div class="drink-price">2.00€</div>
-              <button class="btn-add" data-id="bebida_aquarius" data-name="Bebida: Aquarius Limón (Lata)" data-price="2.00">Añadir</button>
-            </div>
-          </div>
-
-          <div class="drink-card">
-            <div class="drink-left">
-              <div class="drink-name">Pepsi</div>
-              <div class="drink-note">Lata</div>
-            </div>
-            <div style="display:flex; align-items:center; gap:10px;">
-              <div class="drink-price">2.00€</div>
-              <button class="btn-add" data-id="bebida_pepsi" data-name="Bebida: Pepsi (Lata)" data-price="2.00">Añadir</button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
-  <section id="contacto" class="contact-section">
-    <div class="contact-container">
-      <h2>Haz tu Pedido</h2>
-      <p class="conta
+<!-- HEADER -->
+<header>
+<div class="nav-container">
+<div class="logo-container">
+<img alt="QTOP Cheesecake Logo" class="logo-img" src="https://z-cdn-media.chatglm.cn/files/afb9fb8c-196e-4455-a5cb-9709652d3320.png?auth_key=1871063276-63c4cbe92fdb4b1b9588f9e8a2f1196f-0-0a83f481d12b01ea8e70c0e25d231449"/>
+</div>
+<nav>
+<ul>
+<li><a href="#inicio">Inicio</a></li>
+<li><a href="#menu" id="menuLink">Menú</a></li>
+<li><a href="#contacto">Contacto</a></li>
+</ul>
+</nav>
+<button aria-label="Abrir carrito" class="cart-btn" id="cartOpenBtn">
+<i class="fa-solid fa-bag-shopping"></i>
+<span class="label">Carrito</span>
+<span class="cart-badge" id="cartCount">0</span>
+</button>
+</div>
+</header>
+<!-- HERO -->
+<section class="hero" id="inicio">
+<div class="hero-content">
+<img alt="QTOP Cheesecake" class="hero-logo" src="https://z-cdn-media.chatglm.cn/files/afb9fb8c-196e-4455-a5cb-9709652d3320.png?auth_key=1871063276-63c4cbe92fdb4b1b9588f9e8a2f1196f-0-0a83f481d12b01ea8e70c0e25d231449"/>
+<p>Arte en cada porción. Tartas, Brownies y Cookies artesanales preparados con pasión en Coslada.</p>
+<a class="btn-principal" id="heroMenuBtn">Ver Menú</a>
+</div>
+</section>
+<!-- MENÚ -->
+<section class="menu-section" id="menu">
+<h2 class="section-title">Nuestro Menú</h2>
+<!-- Contenedor desplegable -->
+<div class="menu-collapsible" id="menuPanel">
+<div class="menu-grid">
+<!-- Cheesecake -->
+<div class="menu-card">
+<h3>Cheesecake</h3>
+<p class="description">Nuestra estrella. Cremosa, suave y con la base perfecta.</p>
+<div class="variants">
+<div class="variant-row">
+<div>
+<div class="variant-name">Entera</div>
+<div class="variant-price">29.50€</div>
+</div>
+<button class="btn-add" data-id="cheesecake_entera" data-name="Cheesecake (Entera)" data-price="29.50">Añadir</button>
+</div>
+<div class="variant-row">
+<div>
+<div class="variant-name">Porción</div>
+<div class="variant-price">6.00€</div>
+</div>
+<button class="btn-add" data-id="cheesecake_porcion" data-name="Cheesecake (Porción)" data-price="6.00">Añadir</button>
+</div>
+</div>
+</div>
+<!-- Brownie -->
+<div class="menu-card">
+<h3>Brownie</h3>
+<p class="description">Intenso sabor a chocolate, húmedo por dentro y crujiente por fuera.</p>
+<div class="variants">
+<div class="variant-row">
+<div>
+<div class="variant-name">Entero</div>
+<div class="variant-price">31.50€</div>
+</div>
+<button class="btn-add" data-id="brownie_entero" data-name="Brownie (Entero)" data-price="31.50">Añadir</button>
+</div>
+<div class="variant-row">
+<div>
+<div class="variant-name">Porción</div>
+<div class="variant-price">6.00€</div>
+</div>
+<button class="btn-add" data-id="brownie_porcion" data-name="Brownie (Porción)" data-price="6.00">Añadir</button>
+</div>
+</div>
+</div>
+<!-- Cookies -->
+<div class="menu-card">
+<h3>Cookies</h3>
+<p class="description">Recién horneadas, crujientes en los bordes y suaves en el centro.</p>
+<div class="variants">
+<div class="variant-row">
+<div>
+<div class="variant-name">Unidad</div>
+<div class="variant-price">1.50€</div>
+</div>
+<button class="btn-add" data-id="cookie_unidad" data-name="Cookie (Unidad)" data-price="1.50">Añadir</button>
+</div>
+</div>
+</div>
+</div>
+<!-- BEBIDAS (separadas) -->
+<div aria-label="Bebidas" class="drinks-wrap">
+<div class="drinks-title">Bebidas</div>
+<div class="drinks-sub">Todas a <strong>2.00€</strong> (elige tu favorita)</div>
+<div class="drinks-grid">
+<div class="drink-card">
+<div class="drink-left">
+<div class="drink-name">Coca‑Cola</div>
+<div class="drink-note">Lata</div>
+</div>
+<div style="display:flex; align-items:center; gap:10px;">
+<div class="drink-price">2.00€</div>
+<button class="btn-add" data-id="bebida_cocacola" data-name="Bebida: Coca‑Cola (Lata)" data-price="2.00">Añadir</button>
+</div>
+</div>
+<div class="drink-card">
+<div class="drink-left">
+<div class="drink-name">Coca‑Cola Zero</div>
+<div class="drink-note">Lata</div>
+</div>
+<div style="display:flex; align-items:center; gap:10px;">
+<div class="drink-price">2.00€</div>
+<button class="btn-add" data-id="bebida_cocazero" data-name="Bebida: Coca‑Cola Zero (Lata)" data-price="2.00">Añadir</button>
+</div>
+</div>
+<div class="drink-card">
+<div class="drink-left">
+<div class="drink-name">Fanta Naranja</div>
+<div class="drink-note">Lata</div>
+</div>
+<div style="display:flex; align-items:center; gap:10px;">
+<div class="drink-price">2.00€</div>
+<button class="btn-add" data-id="bebida_fanta" data-name="Bebida: Fanta Naranja (Lata)" data-price="2.00">Añadir</button>
+</div>
+</div>
+<div class="drink-card">
+<div class="drink-left">
+<div class="drink-name">Sprite</div>
+<div class="drink-note">Lata</div>
+</div>
+<div style="display:flex; align-items:center; gap:10px;">
+<div class="drink-price">2.00€</div>
+<button class="btn-add" data-id="bebida_sprite" data-name="Bebida: Sprite (Lata)" data-price="2.00">Añadir</button>
+</div>
+</div>
+<div class="drink-card">
+<div class="drink-left">
+<div class="drink-name">Aquarius Limón</div>
+<div class="drink-note">Lata</div>
+</div>
+<div style="display:flex; align-items:center; gap:10px;">
+<div class="drink-price">2.00€</div>
+<button class="btn-add" data-id="bebida_aquarius" data-name="Bebida: Aquarius Limón (Lata)" data-price="2.00">Añadir</button>
+</div>
+</div>
+<div class="drink-card">
+<div class="drink-left">
+<div class="drink-name">Pepsi</div>
+<div class="drink-note">Lata</div>
+</div>
+<div style="display:flex; align-items:center; gap:10px;">
+<div class="drink-price">2.00€</div>
+<button class="btn-add" data-id="bebida_pepsi" data-name="Bebida: Pepsi (Lata)" data-price="2.00">Añadir</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CONTACTO -->
+<section class="contact-section" id="contacto">
+<div class="contact-container">
+<h2>Haz tu Pedido</h2>
+<p class="contact-text">Solo recogida en tienda (Take Away). Realiza tu pedido con antelación.</p>
+<div class="contact-grid">
+<a class="btn-contact" href="https://wa.me/34645052784" target="_blank">
+<i class="fab fa-whatsapp" style="font-size: 1.5rem; color: #25D366;"></i>
+          Pedir por WhatsApp
+        </a>
+<button class="btn-contact" id="payWithPayPalMain">Pagar con PayPal</button>
+</div>
+<div class="info-adicional">
+<p><i class="fas fa-map-marker-alt"></i> Coslada, Madrid (C.P. 28821)</p>
+<p><i class="fas fa-envelope"></i> qtopcheesecake@gmail.com</p>
+<p><i class="fab fa-instagram"></i> @qtopcheesecake</p>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<div class="footer-links">
+<a href="https://www.instagram.com/qtopcheesecake/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+<a href="mailto:qtopcheesecake@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+</div>
+<p>© 2023 Qtop Cheesecake. Todos los derechos reservados.</p>
+</footer>
+<!-- CART UI -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside aria-label="Carrito de compras" class="cart-drawer" id="cartDrawer">
+<div class="cart-header">
+<div class="cart-title">Tu carrito</div>
+<button aria-label="Cerrar carrito" class="cart-close" id="cartCloseBtn"><i class="fa-solid fa-xmark"></i></button>
+</div>
+<div class="cart-body">
+<div id="cartItems"></div>
+<div class="cart-empty" id="cartEmpty">Aún no has añadido productos.</div>
+</div>
+<div class="cart-footer">
+<div class="cart-total-row">
+<span>Total</span>
+<span id="cartTotal">0.00€</span>
+</d
